@@ -1,0 +1,283 @@
+{% include 'public/public_head.html' %}
+{% load staticfiles %}
+
+{#所处位置分类#}
+<p class="site cont">
+    <a href="#" alt="">{{ info.type_id }}</a>&nbsp;>&nbsp;
+    <a href="#" alt="">{{ info.name }}</a>&nbsp;>&nbsp;
+</p>
+{#购买按钮出#}
+<div class="s_main1 cont clearfix">
+    <div class="s_m1r fr">
+        <h1>{{ info.title }}</h1>
+        <p class="s_m1r_p1"><span class="colorChange">【11.11提前抢】</span>雾霾强势来袭，别怕！京东陪你对抗雾霾！净化器+净水器享两件88折！部分型号加送滤芯！滤芯两件8折！关爱您和家人的健康！<a
+                href="#" target="_blank" class="colorChange">点击查看活动详情！</a></p>
+        <div class="s_m1r_div1">
+            <em class="s_m1_collect"><i class="star_w">&nbsp;</i>收藏</em>
+            <p class="s_m1_price"><span>促 销 价</span><strong>￥{{ info.promotion_price }}</strong><font><i></i>降价通知</font>
+            </p>
+            <p class="s_m1_assess"><span>累计评价</span>&nbsp;<a href="#">{{ ev_num }}+</a></p>
+            <p class="s_m1_carriage"><span>运    费</span>&nbsp;<b>满19包邮</b></p>
+        </div>
+        <div class="s_m1r_div2">
+
+            <div class="s_m1_amount">
+                <span>购买数量</span>
+
+{#                购买数量计数器 #}
+                <div class="amount_change">
+                    <b class="invalid" onclick="add(-1)">-</b>
+                    <form id="num_tijiao" action="{% url 'addcar' %}" method="post">
+
+                        <input id="num" type="text" name="num" value="1">
+
+                        <input type="hidden" name="gid" value="{{ info.id }}">
+                        {% csrf_token %}
+                    </form>
+                    <b onclick="add(1)">+</b>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="s_m1r_div3">
+
+            <a href="javascript:;" class="addGoods" onclick=add(0)><i>&nbsp;</i>加入购物车</a>
+
+            <a href="#" target="_blank" class="buyGoods">立即购买</a>
+        </div>
+
+    </div>
+
+    <!-- 放大镜  -->
+
+    <div class="imgBox fl" id="imgBox">
+        <div class="smallImg" id="small-box">
+            <div class="mark" id="mark"></div>
+            <div class="float-box" id="float-box"></div>
+            <img src="{{ MEDIA_URL }}{{ li.0.path }}" width="420" height="420">
+            <div class="i_magnifier"><i class="i_shadow"></i><i>&nbsp;</i></div>
+        </div>
+        <div class="big_box" id="big-box"><img src="{{ MEDIA_URL }}{{ li.1.path }}" width="420" height="420"/></div>
+        <div class="allImg_w">
+            <span class="d_pre"><i>&nbsp;</i></span>
+            <div class="allImg">
+                <ul>
+                    {% for x in li %}
+                        {% if x.path %}
+                            <li class=""><a href="#" target="_blank"><img src="{{ MEDIA_URL }}{{ x.path }}"
+                                                                          width="66" height="66"/></a></li>
+
+                        {% else %}
+                            <li class="current"><a href="#" target="_blank"><img
+                                    src="{% static 'images/details_s1.jpg' %}" width="66" height="66"/></a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <span class="d_next"><i>&nbsp;</i></span>
+        </div>
+    </div>
+
+    <!-- 放大镜 end  -->
+</div>
+
+<div class="sucess_tips">
+    <div class="shadow"></div>
+    <div class="sucess_tips_c">
+        <i>&nbsp;</i>商品已成功加入购物车！
+        <a href="#" target="_blank">去结算</a>
+    </div>
+</div>
+
+{#介绍 ,评价#}
+<div id="goodstj" class="cont s_main2 clearfix">
+
+
+    {#    <!--商品推荐-- >#}
+
+    <div class="sptj fl" id="public_goos_recm">
+
+    </div>
+
+
+    <div class="s_m2_r fr">
+        <div class="tabBar" id="tabBar">
+            <div class="fixed_bg_t"></div>
+            <ul class="s_m2_rt_h">
+                <li class="active"><a href="javascript:;">商品介绍</a></li>
+                <li><a href="javascript:;">商品评价<span class="colorB11">({{ ev_num }}+)</span></a></li>
+                <li><a href="javascript:;">售后保障</a></li>
+                <li class="addGoods"><a href="#" target="_blank"><i>&nbsp;</i>加入购物车</a></li>
+            </ul>
+            <div class="fixed_bg_b"></div>
+        </div>
+        <!-- 商品详情 -->
+
+        <div class="s_m2_r_content s_details">
+            {#                产品参数#}
+            <div class="s_m2_rt">
+
+                <dl class="s_params clearfix">
+                    <dt>产品参数：</dt>
+                    <dd>材质成分: 聚丙烯腈纤维(腈纶)52.8% 棉47.2%</dd>
+                    <dd>品牌: OSA</dd>
+                    <dd>服装版型: 宽松</dd>
+                    <dd>货号: S116C16049</dd>
+                    <dd>厚薄: 常规</dd>
+                    <dd>衣长: 常规款</dd>
+                    <dd>袖长: 长袖</dd>
+                    <dd>领子:其他</dd>
+                    <dd> 图案: 纯色</dd>
+                    <dd>适用年龄: 25-29周岁</dd>
+                    <dd>上市年份/季节: 2016年冬季</dd>
+                    <dd> 颜色分类: 藏蓝色</dd>
+                    <dd>尺码: XS S M L XL XXL</dd>
+                </dl>
+
+            </div>
+            {#                产品参数#}
+            <div class="s_details clearfix">
+                {#                毛点#}
+                <div class="s_d_nav fr">
+                    <b class="s_dr_line"></b>
+                    <ul>
+                        <li><a href="#" class="active"><i>&nbsp;</i>产品特色</a></li>
+                        <li><a href="#"><i>&nbsp;</i>产品功能</a></li>
+                        <li><a href="#"><i>&nbsp;</i>产品细节</a></li>
+                        <li><a href="#"><i>&nbsp;</i>产品信息</a></li>
+                    </ul>
+                </div>
+                {#                end毛点#}
+
+                {#                图片展示页四个字段处#}
+                <div class="s_dl fl">
+                    <div class="section">
+                        {#                        <img src="images/s_details_1.jpg" width="790" height="1189">#}
+                        {% autoescape off %}
+                            {{ info.goods_introduce.content }}
+                        {% endautoescape %}
+                    </div>
+                    <div class="section">
+                        {#                        <img src="images/s_details_2.jpg" width="766" height="1592">#}
+                        {% autoescape off %}
+                            {{ info.goods_introduce.content2 }}
+                        {% endautoescape %}
+                    </div>
+                    <div class="section">
+                        {#                        <img src="images/s_details_3.jpg" width="755" height="641">#}
+                        {% autoescape off %}
+                            {{ info.goods_introduce.content3 }}
+                        {% endautoescape %}
+                    </div>
+                    <div class="section">
+                        {% autoescape off %}
+                            {{ info.goods_introduce.content4 }}
+                        {% endautoescape %}
+                    </div>
+                    <div class="section">
+                        {#   空#}
+                    </div>
+                </div>
+                {#                图片四个字段处#}
+
+            </div>
+        </div>
+
+        <!-- 商品详情 end -->
+
+        <!-- 商品评价 -->
+        <div class="s_m2_r_content s_review">
+            <div class="s_review_sum clearfix">
+                <span class="s_review_sl fl">98%</span>
+                <ul class="s_review_sm fl">
+                    <li class="good"><font>好评(85%)</font><span><i>&nbsp;</i></span></li>
+                    <li class="common"><font>中评(3%)</font><span><i>&nbsp;</i></span></li>
+                    <li class="bad"><font>差评(2%)</font><span><i>&nbsp;</i></span></li>
+                </ul>
+                <a href="#" class="s_review_evalute fr">我要评价</a>
+            </div>
+            <div class="s_review_tab">
+                <span class="active" onclick="gettype(this,0)">全部评价</span>
+                <span onclick="gettype(this,3)">好评</span>
+                <span onclick="gettype(this,2)"> 中评</span>
+                <span onclick="gettype(this,1)">差评</span>
+            </div>
+            {#全部评价#}
+            <div id='evaluate' class="s_review_tabDiv" style="display:block">
+
+                {#                ajax传入页面  #}
+            </div>
+
+        </div>
+        <!-- 商品评价 end -->
+
+        <!-- 售后保障 -->
+        <div class="s_m2_r_content s_after_sale">
+            {% autoescape off %}
+                {{ info.goods_introduce.afte_sale }}
+            {% endautoescape %}
+        </div>
+        <!-- 售后保障 end -->
+
+    </div>
+</div>
+
+
+<!-- footer  -->
+
+{% include 'public/public_footer.html' %}
+
+
+<script>
+    // 获取指定分类 评价
+    function gettype(obj, type) {
+
+        $('.s_review_tab span').removeClass('active');
+        $(obj).addClass('active');
+        getinfo(1, type)
+    }
+
+    $(function () {
+        getinfo(1)
+    });
+
+    function getinfo(page, type = 0) {
+        $.ajax({
+            url: '{% url 'page' info.id %}',
+            type: 'GET',
+            data: {p: page, t: type},
+            dataType: 'html',
+            success: function (data, status, xhr) {
+                $('#evaluate').html(data);
+                {#console.log(data)#}
+            }
+        })
+    }
+
+
+{#    商品详情页加减   #}
+    function add(method) {
+        if (method == 1) {
+            a = parseInt($('#num').val());
+            {#console.log(a + 1);#}
+            $('#num').val(a + 1)
+        }
+        else if (method == -1) {
+            a = parseInt($('#num').val());
+            if (a > 1) {
+                $('#num').val(a - 1)
+            }
+
+        }
+        else if (method == 0) {
+
+            $("#num_tijiao").attr('action', '{% url 'addcar' %}');
+            {#console.log($('#num_tijiao').serialize());#}
+            $('#num_tijiao').submit();
+
+        }
+
+    }
+
+</script>

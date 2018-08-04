@@ -1,0 +1,45 @@
+{% for foo in data %}
+    <div class="s_review_c">
+        <div class="s_review_cl fl">
+            <span class="review_star review_star{{ foo.evaluate_star }}"></span>
+            <p>{{ foo.evaluate_content }}</p>
+            <ul class="review_img">
+                <li class="active">
+                    <img src="{{ MEDIA_URL }}{{ foo.evaluate_img }}" width="46" height="46"><i>&nbsp;</i>
+                </li>
+            </ul>
+
+        </div>
+        <div class="s_review_cr fr">
+            <span>{{ foo.uid }}</span>
+            <span class="review_date">{{ foo.create_time }}</span>
+        </div>
+    </div>
+
+{% endfor %}
+<!-- pages -->
+
+<div class="pages pagesR">
+
+    {% if data.has_previous %}
+        <a class="pages_pre" href="javascript:;" title="上一页"
+           onclick="getinfo({{ data.previous_page_number }},{{ type }})">上一页</a>
+    {% endif %}
+
+    {% for pag_num in data.paginator.page_range %}
+        {% if data.number == pag_num %}
+            <a href="javascript:;" class="active" onclick="getinfo({{ pag_num }},{{ type }})">{{ pag_num }}</a>
+        {% else %}
+            <a href="javascript:;" onclick="getinfo({{ pag_num }},{{ type }})">{{ pag_num }}</a>
+        {% endif %}
+    {% endfor %}
+
+    {% if data.has_next %}
+        <span>…</span>
+        <a href="javascript:;" onclick="getinfo({{ data.next_page_number }},{{ type }})" class="pages_next" title="下一页">下一页</a>
+    {% endif %}
+
+
+</div>
+
+

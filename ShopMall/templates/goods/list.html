@@ -1,0 +1,127 @@
+{% load  staticfiles %}
+
+{#公共头部引入#}
+{% include  'public/public_head.html' %}
+
+
+<body>
+
+<!--  content start-->
+{#商品列表上方导航#}
+<div class="l_select cont clearfix">
+	<p class="site"><a href="#" alt="">首页</a>&nbsp;>&nbsp;
+        <a href="#" alt="">品牌女装</a>&nbsp;>&nbsp;
+        <a href="#" alt="" class="current">年份季节:2015年春季 <span>×</span></a></p>
+	<div>
+    	<dl>
+        	<dt><a href="#" alt=""><i>></i>当季流行</a></dt>
+            <dd>
+            	<span><a href="#" alt="">2016当季新品</a></span>
+            	<span><a href="#" alt="">商场同款</a></span>
+            	<span><a href="#" alt="">独家首发</a></span>
+            	<span><a href="#" alt="">时尚连衣裙</a></span>
+            	<span><a href="#" alt="">针织衫</a></span>
+            	<span><a href="#" alt="">印花卫衣</a></span>
+            	<span><a href="#" alt="">衬衫</a></span>
+            	<span><a href="#" alt="">短外套</a></span>
+            	<span><a href="#" alt="">短外套</a></span>
+            </dd>
+            <dd class="more"><span>更多</span></dd>
+        </dl>
+    	<dl>
+        	<dt><a href="#" alt=""><i>></i>特色服装</a></dt>
+            <dd>
+            	<span><a href="#" alt="">中老年女装</a></span>
+            	<span><a href="#" alt="">大码女装</a></span>
+            	<span><a href="#" alt="">时尚套装</a></span>
+            	<span><a href="#" alt="">休闲运动套装</a></span>
+            	<span><a href="#" alt="">职业套装</a></span>
+            	<span><a href="#" alt="">设计师原创品牌</a></span>
+            	<span><a href="#" alt="">民族服饰</a></span>
+            	<span><a href="#" alt="">舞台服装</a></span>
+            	<span><a href="#" alt="">婚纱</a></span>
+            	<span><a href="#" alt="">2016当季新品</a></span>
+            	<span><a href="#" alt="">商场同款</a></span>
+            	<span><a href="#" alt="">独家首发</a></span>
+            	<span><a href="#" alt="">时尚连衣裙</a></span>
+            	<span><a href="#" alt="">针织衫</a></span>
+            	<span><a href="#" alt="">印花卫衣</a></span>
+            	<span><a href="#" alt="">衬衫</a></span>
+            </dd>
+            <dd class="more"><span>更多</span></dd>
+        </dl>
+    </div>
+</div>
+<div class="l_content cont clearfix">
+
+    {#公共商品推荐#}
+    <div class="sptj fl" id="public_goos_recm">
+
+    </div>
+{# end公共商品推荐#}
+
+    <div class="l_list fr">
+        <div class="l_list_t clearfix">
+            <div class="l_lt_l fl">
+                <span>综合排序<i class="down">&nbsp;</i></span>
+                <span class="border0">人气<i class="up">&nbsp;</i></span>
+                <span>价格<i class="up">&nbsp;</i></span>
+            </div>
+            <div class="l_lt_r fr">
+                <b>共614件商品</b>
+                <b><font>1</font>/11</b>
+                <span><</span>
+                <span class="border0 active">></span>
+            </div>
+        </div>
+        <ul class="listL">
+            {% for x in li.object_list %}
+                <li>
+
+                    {% if x.goods_img_set.first.path %}
+                        <a href="{% url 'show' x.id %}"  alt="">
+                            <img src="{{ MEDIA_URL }}{{ x.goods_img_set.first.path }}" width="195" height="200">
+                        </a>
+                    {% else %}
+                        <a href="#" alt=""><img src="{% static 'images/list_1.jpg' %}" width="195" height="200"></a>
+                    {% endif %}
+
+                    <span class="price">{{ x.price }}  </span>
+                    <a href="#" alt="">{{ x.name }}<br><font class="colorB11">安卓机皇,值得拥有</font></a>
+                    <a href="#" alt="" class="comment">已有<b>3.2万+</b>人评价</a>
+                    <div class="listL_b">
+                        <a href="#" class="gwc_ad"><i>&nbsp;</i>加入购物车</a>
+                        <a href="#" class="collect">喜欢</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+
+
+        <!-- pages 页数标签-->
+        <div class="pages">
+
+            {% if li.has_previous %}
+                <a class="pages_pre" href="?p={{ li.previous_page_number }}" title="上一页">上一页</a>
+            {% endif %}
+
+            {% for pag_num in li.paginator.page_range %}
+                {% if li.number == pag_num %}
+                    <a href="?p={{ pag_num }}" class="active">{{ pag_num }}</a>
+                {% else %}
+                    <a href="?p={{ pag_num }}">{{ pag_num }}</a>
+                {% endif %}
+            {% endfor %}
+
+            {% if li.has_next %}
+                <span>…</span><a href="?p={{ li.next_page_number }}" class="pages_next" title="下一页">下一页</a>
+                <span>共{{ li.paginator.num_pages }}页</span>
+            {% endif %}
+        </div>
+        {#   页数标签结束       #}
+    </div>
+</div>
+
+
+{#引入公共尾部#}
+{% include 'goods/../public/public_footer.html' %}

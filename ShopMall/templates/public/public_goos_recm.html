@@ -1,0 +1,13 @@
+    <!--商品推荐-->
+
+<h4><a href="#" alt="">商品推荐</a></h4>
+        <ul class="listI fl">
+            {% for recom in recommend %}
+            <li>
+                <a href="/show/{{ recom.goodstj_name.id }}" alt=""><img src="{{ MEDIA_URL }}{{ recom.goodstj_name.goods_img_set.first.path }}" width="130" height="130" alt=""></a>
+                <a href="/show/{{ recom.goodstj_name.id }}" alt="">{{ recom.goodstj_name.name }}<br/>{{ recom.goodstj_name.name }}</a>
+                <span class="price">￥{{ recom.goodstj_name.price }}</span>
+            </li>
+            {% endfor %}
+        </ul>
+    <!--商品推荐 end -->

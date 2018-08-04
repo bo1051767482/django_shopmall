@@ -1,0 +1,1 @@
+default_app_config='goods.apps.GoodsConfig'  #默认应用设置

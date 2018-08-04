@@ -1,0 +1,146 @@
+{# 继承开始 #}
+{% extends 'public/public_head.html' %}
+
+
+{#    重写开始 #}
+{% block middle %}
+
+    {% load staticfiles %}
+{#    购物车头#}
+    <div class="order_head_info cont clearfix">
+        <a href="#" alt="" class="fl"><img src="{% static 'images/u_logo.jpg' %}" width="210" height="42"></a><span
+            class="header_title">购物车</span>
+        <div class="order_pro clearfix">
+            <span class="pro_active"><b>1</b>我的购物车</span>
+            <span class="pro_next"><b>2</b>提交结算</span>
+            <span class="pro_next"><b>3</b>提交成功</span>
+        </div>
+    </div>
+{#    end#}
+
+
+
+    <!--购物车清单-->
+    <div class="order1_c cont">
+        <form>
+            <!-- 购物车清单内容 -->
+            <dl>
+{#            购物车表头#}
+                <dt>
+                    <span class="order1_h1"><label class="order1_checkbox order1_checkbox_total"><i></i>全选<input
+                            type="checkbox" id="order3_all"></label></span>
+                    <span class="order1_h2">商品</span>
+                    <span class="order1_h3">单价</span>
+                    <span class="order1_h4">购买数量</span>
+                    <span class="order1_h5">小计</span>
+                    <span class="order1_h6">操作</span>
+                </dt>
+{#end     #}
+
+{#            内容#}
+                {% for x in data %}
+<dd class="">{#全选框#}
+{#多选框#}
+<span class="order1_d1"><label class="order1_checkbox">
+    <i class=""></i>   {#单选选框#}
+{#   商品图片  #}
+<input type="checkbox" id="order3_all" checked></label></span>
+                 <span class="order1_d2">
+                <div class="list_goods fl">
+                    <a href="#"><img src="{{ MEDIA_URL }}{{ x.goods.goods_img_set.first.path }}" width="66" height="66"></a>
+                    <p class="list_goods_name"><a href="#">{{ x.goods }}</a></p>
+                </div>
+                </span>
+    {#                          商品单价  #}
+                        <span class="order1_d3 order1_h3">￥{{ x.goods.price }}</span>
+
+{#隐藏域                       #}
+<input type="hidden" id="price_{{ x.id }}" value="{{ x.goods.price }}">
+
+{#                          购买商品数量加减  #}
+<span class="order1_d4 order1_h4"><div class="amount_change">
+
+
+<b class="invalid" onclick="reduce()">-</b>
+{#隐藏域       #}
+<input type="text" id="number_{{ x.id }}" value={{ x.number }} data={{ x.id }}>
+
+<b onclick="increase()">+</b>
+
+</div></span>
+
+
+{#小计价格  #}
+<span class="order1_d5 order1_h5" >
+    <font id='xiao{{ x.id }}' class="gwc_price"></font>
+</span>
+
+                        <span class="order1_h6 order1_d6">
+    <a href="#">删除</a> <a href="#">移入收藏夹</a>
+</span>
+
+
+                    </dd>
+                {% endfor %}
+
+
+            </dl>
+            <!-- 购物车结算 -->
+            <div class="order1_balance clearfix">
+                <div class="fl"><span class="order1_h1"><label
+                        class="order1_checkbox order1_checkbox_total"><i></i>全选<input type="checkbox"
+                                                                                      id="order3_all"></label></span><a
+                        href="#">删除选中的商品</a></div>
+                <div class="fr order1_bar">
+                    <span class="order1_barl fl">已选择<em class="colorB11">1</em>件商品</span>
+                    <p class="fr">
+                        <span>总价：￥5199.00</span>
+                        <span>优惠：￥0.00</span>
+                        <span>合计：<font class="price">￥5199.00</font></span>
+                    </p>
+                </div>
+            </div>
+            <div class="order1_b"><a href="#" class="hover_btn1">继续购物</a>
+                <a href="#" class="hover_btn2">提交结算</a>
+            </div>
+        </form>
+    </div>
+
+    <!-- footer  -->
+    {% include 'public/public_footer.html' %}
+
+    <script>
+        $(document).ready(
+            {#小计 价格#}
+            function jisuan() {
+                {#    循环所有模糊匹配到的input标签  input[id*='number']  #}
+                $("input[id*='number']").each(function () {
+                    {#商品数量#}
+                    {#alert($(this).val());#}
+
+                    id = $(this).attr('data');
+                    {#    当前input标签的商品数量   #}
+                    console.log($(this).val());
+                    {#  获取当前id的商品价格 #}
+                    console.log($('#price_' + id).val());
+                    {#   获取乘积   #}
+
+                    console.log($(this).val() * $('#price_' + id).val());
+
+                    {#写  入  #}
+                    $('#xiao' + id).html($(this).val() * $('#price_' + id).val());
+
+                })
+            }
+        )
+
+    </script>
+
+
+{% endblock %}
+
+
+
+
+
+

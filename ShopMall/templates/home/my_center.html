@@ -1,0 +1,68 @@
+{% include 'public/public_head.html' %}
+{% load staticfiles %}
+{# 内容#}
+<div class="cont user user_0 clearfix">
+	<div class="user_menu"> 
+        <dl>
+            <dt class="colorChange">个人中心</dt>
+            <dd><a href="{% url 'order' %} }" target="_blank">我的订单</a></dd>
+            <dd><a href="{% url 'my_collect' %}" target="_blank">我的收藏</a></dd>
+            <dd><a href="#" target="_blank">我的优惠券</a></dd>
+            <dd><a href="{% url 'shop_address' %}" target="_blank">我的收货地址</a></dd>
+            <dd><a href="#" target="_blank">商品评价</a></dd>
+            <dd><a href="{% url 'change_pwd' %}" target="_blank">修改密码</a></dd>
+        </dl>
+    </div>
+    <!--  个人信息内容  -->
+    <div class="user_right fr">
+        <h3 class="user_title">个人信息</h3>
+		<div class="user_rc clearfix">
+			<p>亲爱的<span>d***i</span>，填写真实的资料，有助于好友找到你哦。</p>
+          <form action="#" >
+          <table width="500" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <th class="zg_person_th">当前头像：</th>
+                <td>
+                	<img src="{% static 'images/zg_person.jpg' %}" width="120" height="120" alt="我的头像">
+                    <label class="userInfo_file"><input type="file">上传头像</label>
+                </td>
+              </tr>
+              <tr>
+                <th>邮箱帐号：</th>
+                <td class="user_mail">
+                	<span>zhangsan@126.com</span>
+                    <span>未验证 <a href="#">去验证</a></span>
+                    <span>已验证 <a href="#">修改邮箱</a></span>
+                </td>
+              </tr>
+              <tr>
+                <th>昵称：</th>
+                <td><input type="text" class="zg_person_text focusBorder"></td>
+                </tr>
+              <tr>
+                <th>手机：</th>
+                <td><input type="text" class="zg_person_text focusBorder"></td>
+                </tr>
+              <tr>
+                <th>QQ：</th>
+                <td><input type="text" class="zg_person_text focusBorder"></td>
+                </tr>
+              <tr>
+                <th>性别：</th>
+                <td>
+                	<label class="userInfo_radio"><i class="checked">&nbsp;</i><input type="radio" name="sex" checked>男</label>
+                	<label class="userInfo_radio"><i>&nbsp;</i><input type="radio" name="sex">女</label>
+                </td>
+             </tr>
+        </table>
+        <input type="submit" value="提交"  class="zg_person_submit">
+         </form>
+            
+        </div>
+	</div>
+    <!--  我的收藏 end  -->
+</div>
+
+
+<!-- footer  -->
+{% include 'public/public_footer.html' %}

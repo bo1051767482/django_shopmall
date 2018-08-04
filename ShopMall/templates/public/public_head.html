@@ -1,0 +1,114 @@
+{% load staticfiles %}
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <title>乐选商城 | 商品列表页</title>
+    <link rel="icon" href="{% static 'images/u_logo.jpg' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/pub.css' %}"/>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/content.css' %}"/>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/user.css' %}" />
+
+    <link type="text/css" rel="stylesheet" href="{% static 'css/color.css' %}"/>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static  'js/pub.js' %}"></script>
+    <script src="{% static 'js/content.js' %}"></script>
+    <script src="{% static 'js/index.js' %}"></script>
+</head>
+
+<body>
+
+<!-- 公共头部 -->
+<div class="header_w wrap">
+    <div class="header cont">
+        <div class="fl">
+            <font>欢迎来小U商城</font>
+            <a href="{% url 'signin' %}  " alt="" id="state"></a><span></span>
+            <a href="{% url 'signup' %}  " alt="">免费注册</a>
+        </div>
+        <div class="fr header_r">
+            <a href="{% url 'order' %}" alt="">我的订单</a><span></span>
+            <a href="#" alt="" class="moblieApp">移动APP</a><span></span>
+            <a href="#" alt="">网站地图</a><span></span>
+            <a href="{% url 'logout' %}" alt="" class="paddingR0">退出</a>
+            <div class="mobileApp_QR">
+                <img src="{% static 'images/mobileApp_QR.jpg' %}" width="140" height="141">
+                <a href="#" class="iphone"><i></i>iphone下载</a>
+                <a href="#" class="android"><i></i>Android下载</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--头部 end -->
+
+{% block middle %}
+{#搜索框   #}
+<div class="header_b cont">
+    <a href="{% url 'index' %}" alt="" class="fl"><img src="{% static 'images/u_logo.jpg' %}" width="210" height="42"></a>
+    <div class="header_search fl">
+
+        <form action="{% url 'search' %}" method="GET">
+            <input type="text" value=""  name="input" class="header_text fl"
+
+                   onBlur="if(value==''){value='手机'}" onFocus="if(value=='手机')value='';">
+            <input type="submit" value="搜索" class="header_sub fr">
+        </form>
+
+    </div>
+{#搜索框   #}
+
+
+    <!-- header-购物车  -->
+    <div class="header_gwc fr">
+        <a href="{% url 'showcar' %}" target="_blank" alt="" class="header_gwc_h">
+            <i class="icon_gwc">&nbsp;</i>购物车<i class="i_num">{{ number }}</i><b class="bgfff">&nbsp;</b></a>
+        <div class="header_nogoods gwc_list">
+            <i>&nbsp;</i>你的购物车中还没有商品，赶紧选购吧
+        </div>
+        <div class="header_goods gwc_list">
+            <h6>最新加入的商品</h6>
+
+                <ul>
+                    {% for x in data %}
+                <li id="del{{ x.id }}">
+                    <p class="gwc_r fr">
+                        <span class="gwc_price">￥{{ x.goods.price }}</span><font class="gwc_amount">×{{ x.number }}</font><br/>
+                        <a href="#" id="gwc_delete" onclick="gwc_delete({{ x.id }})" class="gwc_delete">删除</a>
+                    </p>
+                    <img src="{{ MEDIA_URL }}{{ x.goods.goods_img_set.first.path }}" width="49" height="49">
+                    <a href="#">{{ x.goods }}</a>
+                </li>
+                    {% endfor %}
+
+            </ul>
+            <div class="gwc_total">共<b>{{ number }}</b>件商品 共计<b>￥{{ total }}</b><a href="{% url 'showcar' %}" class="fr">去结算</a></div>
+        </div>
+    </div>
+    <!-- header-购物车 end  -->
+</div>
+
+
+
+
+{#公共导航#}
+{% include 'public/public_nav.html' %}
+
+<!-- 公共头部  end -->
+{% endblock %}
+
+
+
+<script>
+{#   页面加载完成调用方法#}
+
+{#$(document).ready(#}
+{#function () {#}
+{#    user_display()#}
+    {#{#}
+    {#{#);#}
+
+
+</script>

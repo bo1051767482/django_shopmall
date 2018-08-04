@@ -1,0 +1,295 @@
+{% include 'public/public_head.html' %}
+<!--头部下方导航   end  -->
+<!-- 公共头部  end -->
+
+{# 内容 #}
+<div class="cont user user_1 clearfix">
+	<div class="user_menu"> 
+        <dl>
+            <dt class="colorChange">个人中心</dt>
+            <dd><a href="{% url 'order' %} }" target="_blank">我的订单</a></dd>
+            <dd><a href="{% url 'my_collect' %}" target="_blank">我的收藏</a></dd>
+            <dd><a href="#" target="_blank">我的优惠券</a></dd>
+            <dd><a href="{% url 'shop_address' %}" target="_blank">我的收货地址</a></dd>
+            <dd><a href="#" target="_blank">商品评价</a></dd>
+            <dd><a href="{% url 'change_pwd' %}" target="_blank">修改密码</a></dd>
+        </dl>
+    </div>
+    <!-- 我的订单内容-->
+    <div class="user_right fr">
+        <h3 class="user_title">我的订单</h3>
+        <div class="zg-right-nav clearfix">
+            <ul class="zgright-nav-ul fl">
+                <li><a href="#" class="active">全部</a></li>
+                <li><a href="#">待支付</a></li>
+                <li><a href="#">待发货</a></li>
+                <li><a href="#">待评价</a></li>
+            </ul>
+            <div class="user_search_w fr"><i>&nbsp;</i>
+                <input type="text" value="订单编号" class="ipt_search" onFocus="if(value=='订单编号')value='';" onBlur="if(value=='')value='商品名称';"/>
+                <input type="submit" value="" class="user_search_submit">
+            </div>
+        </div>
+        <p class="noInfo"><i class="i_sad">&nbsp;</i>您目前还没有已购买的宝贝，快去逛逛<a href="#">首页</a>吧！</p>
+        
+        
+        <div class="zg-right-tabC active">
+        	<!-- 待支付 -->
+            <div class="orders_detail order_details_nopaid">
+                <p class="order_title">
+                    <span>订单号：2686501859085013</span>
+                    <span class="spanM">创建时间：2016-11-4</span>
+                    <span>订单状态：未支付</span>
+                </p>
+                <table>
+                	<tr>
+                    	<td>
+                            <ul class="myorderL fl">
+                                <li>
+                                    <div class="list_goods fl">
+                                        <a href="#"><img src="images/good_s.jpg" width="66" height="66"></a>
+                                        <p class="list_goods_name"><a href="#">Apple iPhone 6 Plus (A1524) 64GB 深空灰色 移动联通电信4G手机</a></p>
+                                    </div>
+                                    <span class="fr">×1</span>
+                                </li>
+                                <li>
+                                    <div class="list_goods fl">
+                                        <a href="#"><img src="images/good_s.jpg" width="66" height="66"></a>
+                                        <p class="list_goods_name"><a href="#">Apple iPhone 6 Plus (A1524) 64GB 深空灰色 移动联通电信4G手机</a></p>
+                                    </div>
+                                    <span class="fr">×1</span>
+                                </li>
+                                <li class="border0">
+                                    <div class="list_goods fl">
+                                        <a href="#"><img src="images/good_s.jpg" width="66" height="66"></a>
+                                        <p class="list_goods_name"><a href="#">Apple iPhone 6 Plus (A1524) 64GB 深空灰色 移动联通电信4G手机</a></p>
+                                    </div>
+                                    <span class="fr">×1</span>
+                                </li>
+                            </ul>
+                        </td>
+                        <td class="myorder_m">总额 ￥123.45</td>
+                        <td class="myorder_r">
+                            <a href="#" target="_blank" class="goPay">去支付</a>
+                            <a href="#" target="_blank" class="td03-a02">订单详情</a>
+                            <a href="#" target="_blank" class="td03-a03">取消订单</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            
+        	<!-- 待收货 -->
+            <div class="orders_detail">
+                <p class="order_title">
+                    <span>订单号：2686501859085013</span>
+                    <span class="spanM">创建时间：2016-11-4</span>
+                    <span>订单状态：未支付</span>
+                </p>
+                <table>
+                	<tr>
+                    	<td>
+                            <ul class="myorderL fl">
+                                <li>
+                                    <div class="list_goods fl">
+                                        <a href="#"><img src="images/good_s.jpg" width="66" height="66"></a>
+                                        <p class="list_goods_name"><a href="#">Apple iPhone 6 Plus (A1524) 64GB 深空灰色 移动联通电信4G手机</a></p>
+                                    </div>
+                                    <span class="fr">×1</span>
+                                </li>
+                                <li>
+                                    <div class="list_goods fl">
+                                        <a href="#"><img src="images/good_s.jpg" width="66" height="66"></a>
+                                        <p class="list_goods_name"><a href="#">Apple iPhone 6 Plus (A1524) 64GB 深空灰色 移动联通电信4G手机</a></p>
+                                    </div>
+                                    <span class="fr">×1</span>
+                                </li>
+                            </ul>
+                        </td>
+                        <td class="myorder_m">总额 ￥123.45</td>
+                        <td class="myorder_r">
+                            <a href="#" target="_blank" class="confirmR">确认收货</a>
+                            <a href="#" target="_blank" class="td03-a02">订单详情</a>
+                            <a href="#" target="_blank" class="td03-a03">取消订单</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        	<!-- 待评价 -->
+
+            <div class="orders_detail">
+                <p class="order_title">
+                    <span>订单号：2686501859085013</span>
+                    <span class="spanM">创建时间：2016-11-4</span>
+                    <span>订单状态：未支付</span>
+                </p>
+                <table>
+                	<tr>
+                    	<td>
+                            <ul class="myorderL fl">
+                                <li>
+                                    <div class="list_goods fl">
+                                        <a href="#"><img src="images/good_s.jpg" width="66" height="66"></a>
+                                        <p class="list_goods_name"><a href="#">Apple iPhone 6 Plus (A1524) 64GB 深空灰色 移动联通电信4G手机</a></p>
+                                    </div>
+                                    <span class="fr">×1</span>
+                                </li>
+                            </ul>
+                        </td>
+                        <td class="myorder_m">总额 ￥123.45</td>
+                        <td class="myorder_r">
+                            <a href="#" target="_blank" class="evaluate">评价</a>
+                            <a href="#" target="_blank" class="td03-a02">订单详情</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!-- pages -->
+            <div class="pages pagesR">
+                <a class="pages_pre" href="#" title="上一页">上一页</a><a  href="#"class="active">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><span>…</span><a href="#" class="pages_next" title="下一页">下一页</a><span>共100页</span>
+            </div>
+            
+        </div>
+
+        <div class="zg-right-tabC">
+        	<!-- 待支付 -->
+            <div class="orders_detail order_details_nopaid">
+                <p class="order_title">
+                    <span>订单号：2686501859085013</span>
+                    <span class="spanM">创建时间：2016-11-4</span>
+                    <span>订单状态：未支付</span>
+                </p>
+                <table>
+                	<tr>
+                    	<td>
+                            <ul class="myorderL fl">
+                                <li>
+                                    <div class="list_goods fl">
+                                        <a href="#"><img src="images/good_s.jpg" width="66" height="66"></a>
+                                        <p class="list_goods_name"><a href="#">Apple iPhone 6 Plus (A1524) 64GB 深空灰色 移动联通电信4G手机</a></p>
+                                    </div>
+                                    <span class="fr">×1</span>
+                                </li>
+                                <li>
+                                    <div class="list_goods fl">
+                                        <a href="#"><img src="images/good_s.jpg" width="66" height="66"></a>
+                                        <p class="list_goods_name"><a href="#">Apple iPhone 6 Plus (A1524) 64GB 深空灰色 移动联通电信4G手机</a></p>
+                                    </div>
+                                    <span class="fr">×1</span>
+                                </li>
+                                <li class="border0">
+                                    <div class="list_goods fl">
+                                        <a href="#"><img src="images/good_s.jpg" width="66" height="66"></a>
+                                        <p class="list_goods_name"><a href="#">Apple iPhone 6 Plus (A1524) 64GB 深空灰色 移动联通电信4G手机</a></p>
+                                    </div>
+                                    <span class="fr">×1</span>
+                                </li>
+                            </ul>
+                        </td>
+                        <td class="myorder_m">总额 ￥123.45</td>
+                        <td class="myorder_r">
+                            <a href="#" target="_blank" class="goPay">去支付</a>
+                            <a href="#" target="_blank" class="td03-a02">订单详情</a>
+                            <a href="#" target="_blank" class="td03-a03">取消订单</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            
+            <!-- pages -->
+            <div class="pages pagesR">
+                <a class="pages_pre" href="#" title="上一页">上一页</a><a  href="#"class="active">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><span>…</span><a href="#" class="pages_next" title="下一页">下一页</a><span>共100页，到第<input type="text" class="pages_ipt focusBorder">页</span><label class="pages_btn_w"><input type="submit" value="确定" class="pages_btn"></label>
+            </div>
+            
+        </div>
+
+
+        <div class="zg-right-tabC">
+            
+        	<!-- 待收货 -->
+            <div class="orders_detail">
+                <p class="order_title">
+                    <span>订单号：2686501859085013</span>
+                    <span class="spanM">创建时间：2016-11-4</span>
+                    <span>订单状态：未支付</span>
+                </p>
+                <table>
+                	<tr>
+                    	<td>
+                            <ul class="myorderL fl">
+                                <li>
+                                    <div class="list_goods fl">
+                                        <a href="#"><img src="images/good_s.jpg" width="66" height="66"></a>
+                                        <p class="list_goods_name"><a href="#">Apple iPhone 6 Plus (A1524) 64GB 深空灰色 移动联通电信4G手机</a></p>
+                                    </div>
+                                    <span class="fr">×1</span>
+                                </li>
+                                <li>
+                                    <div class="list_goods fl">
+                                        <a href="#"><img src="images/good_s.jpg" width="66" height="66"></a>
+                                        <p class="list_goods_name"><a href="#">Apple iPhone 6 Plus (A1524) 64GB 深空灰色 移动联通电信4G手机</a></p>
+                                    </div>
+                                    <span class="fr">×1</span>
+                                </li>
+                            </ul>
+                        </td>
+                        <td class="myorder_m">总额 ￥123.45</td>
+                        <td class="myorder_r">
+                            <a href="#" target="_blank" class="confirmR">确认收货</a>
+                            <a href="#" target="_blank" class="td03-a02">订单详情</a>
+                            <a href="#" target="_blank" class="td03-a03">取消订单</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- pages -->
+            <div class="pages pagesR">
+                <a class="pages_pre" href="#" title="上一页">上一页</a><a  href="#"class="active">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><span>…</span><a href="#" class="pages_next" title="下一页">下一页</a><span>共100页，到第<input type="text" class="pages_ipt focusBorder">页</span><label class="pages_btn_w"><input type="submit" value="确定" class="pages_btn"></label>
+            </div>
+            
+        </div>
+        <div class="zg-right-tabC">
+
+        	<!-- 待评价 -->
+
+            <div class="orders_detail">
+                <p class="order_title">
+                    <span>订单号：2686501859085013</span>
+                    <span class="spanM">创建时间：2016-11-4</span>
+                    <span>订单状态：未支付</span>
+                </p>
+                <table>
+                	<tr>
+                    	<td>
+                            <ul class="myorderL fl">
+                                <li>
+                                    <div class="list_goods fl">
+                                        <a href="#"><img src="images/good_s.jpg" width="66" height="66"></a>
+                                        <p class="list_goods_name"><a href="#">Apple iPhone 6 Plus (A1524) 64GB 深空灰色 移动联通电信4G手机</a></p>
+                                    </div>
+                                    <span class="fr">×1</span>
+                                </li>
+                            </ul>
+                        </td>
+                        <td class="myorder_m">总额 ￥123.45</td>
+                        <td class="myorder_r">
+                            <a href="#" target="_blank" class="evaluate">评价</a>
+                            <a href="#" target="_blank" class="td03-a02">订单详情</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!-- pages -->
+            <div class="pages pagesR">
+                <a class="pages_pre" href="#" title="上一页">上一页</a><a  href="#" class="active">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><span>…</span><a href="#" class="pages_next" title="下一页">下一页</a><span>共100页，到第<input type="text" class="pages_ipt focusBorder">页</span><label class="pages_btn_w"><input type="submit" value="确定" class="pages_btn"></label>
+            </div>
+            
+        </div>
+
+
+    </div>
+    <!-- 我的订单内容-->
+</div>
+<!-- footer  -->
+{% include 'public/public_footer.html' %}
