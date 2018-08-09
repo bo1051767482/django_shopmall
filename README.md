@@ -1,3 +1,3 @@
-# django_shopmall
+# django_shopmall商城项目的代码 
 
-商城项目的一些讲解代码 
+
